@@ -786,14 +786,18 @@ summary<span class="p">(</span><span class="bp">self</span><span class="p">)</sp
 <p>Prints the summary of the search to the console.</p>
 <p>Assuming the <em>RandomSearch</em> had n iterations or the
 <em>GridSearch</em> had n combinations in total, the output
-would have the following structure::
+would have the following structure:
+<div class="highlight">
+<pre><span></span><code>    --------------------------------------------------
+    Best score: ``float`` using params: ``dict``
     --------------------------------------------------
-    Best score: <code>float</code> using params: <code>dict</code>
-    --------------------------------------------------
-    Idx: 0   - Score: <code>float</code> using params: <code>dict</code>
+    Idx: 0   - Score: ``float`` using params: ``dict``
     ...
-    Idx: n-1 - Score: <code>float</code> using params: <code>dict</code>
-    --------------------------------------------------</p>
+    Idx: n-1 - Score: ``float`` using params: ``dict``
+    --------------------------------------------------
+</code></pre>
+</div>
+</p>
 <details class="quote">
           <summary>Source code in <code>tensorcross\model_selection\search.py</code></summary>
           <table class="highlighttable">
@@ -825,7 +829,9 @@ would have the following structure::
 144
 145
 146
-147</pre>
+147
+148
+149</pre>
 </div>
 </td>
 <td class="code">
@@ -835,7 +841,8 @@ would have the following structure::
 
 <span class="sd">    Assuming the *RandomSearch* had n iterations or the</span>
 <span class="sd">    *GridSearch* had n combinations in total, the output</span>
-<span class="sd">    would have the following structure::</span>
+<span class="sd">    would have the following structure:</span>
+<span class="sd">    ```</span>
 <span class="sd">        --------------------------------------------------</span>
 <span class="sd">        Best score: ``float`` using params: ``dict``</span>
 <span class="sd">        --------------------------------------------------</span>
@@ -843,6 +850,7 @@ would have the following structure::
 <span class="sd">        ...</span>
 <span class="sd">        Idx: n-1 - Score: ``float`` using params: ``dict``</span>
 <span class="sd">        --------------------------------------------------</span>
+<span class="sd">    ```</span>
 <span class="sd">    """</span>
     <span class="n">best_params_str</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"Best score: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">results_</span><span class="p">[</span><span class="s1">'best_score'</span><span class="p">]</span><span class="si">}</span><span class="s2"> "</span>
                        <span class="sa">f</span><span class="s2">"using params: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">results_</span><span class="p">[</span><span class="s1">'best_params'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -891,9 +899,12 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p>GridSearch for a given parameter grid.</p>
 <p>The grid search is evaluated by the either the validation loss value,
 if no metrics are passed to the compile function, or the
-validation score of the last defined metric is used.</p>
-<pre><code class="language-python">    model.compile(loss="mse", metrics=["mse", "mae"])
+validation score of the last defined metric is used.
+<div class="highlight">
+<pre><span></span><code>    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
 </code></pre>
+</div>
+</p>
 <p>This would sort the grid search combinations based on the validation
 mae score.</p>
 <p><strong>Parameters:</strong></p>
@@ -950,9 +961,7 @@ Defaults to 0.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>151
-152
-153
+<pre><span></span>153
 154
 155
 156
@@ -983,7 +992,9 @@ Defaults to 0.</p>
 181
 182
 183
-184</pre>
+184
+185
+186</pre>
 </div>
 </td>
 <td class="code">
@@ -1000,7 +1011,7 @@ Defaults to 0.</p>
 <span class="sd">    The grid search is evaluated by the either the validation loss value,</span>
 <span class="sd">    if no metrics are passed to the compile function, or the</span>
 <span class="sd">    validation score of the last defined metric is used.</span>
-<span class="sd">    ```python</span>
+<span class="sd">    ``` python</span>
 <span class="sd">        model.compile(loss="mse", metrics=["mse", "mae"])</span>
 <span class="sd">    ```</span>
 
@@ -1086,9 +1097,7 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>186
-187
-188
+<pre><span></span>188
 189
 190
 191
@@ -1107,7 +1116,9 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 204
 205
 206
-207</pre>
+207
+208
+209</pre>
 </div>
 </td>
 <td class="code">
@@ -1169,9 +1180,12 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p>RandomSearch for a given parameter distribution.</p>
 <p>The random search is evaluated by the either the validation loss value,
 if no metrics are passed to the compile function, or the
-validation score of the last defined metric is used.</p>
-<pre><code class="language-python">    model.compile(loss="mse", metrics=["mse", "mae"])
+validation score of the last defined metric is used.
+<div class="highlight">
+<pre><span></span><code>    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
 </code></pre>
+</div>
+</p>
 <p>This would sort the random search combinations based on the validation
 mae score.</p>
 <p><strong>Parameters:</strong></p>
@@ -1236,9 +1250,7 @@ Defaults to 0.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>211
-212
-213
+<pre><span></span>213
 214
 215
 216
@@ -1276,7 +1288,9 @@ Defaults to 0.</p>
 248
 249
 250
-251</pre>
+251
+252
+253</pre>
 </div>
 </td>
 <td class="code">
@@ -1294,7 +1308,7 @@ Defaults to 0.</p>
 <span class="sd">    The random search is evaluated by the either the validation loss value,</span>
 <span class="sd">    if no metrics are passed to the compile function, or the</span>
 <span class="sd">    validation score of the last defined metric is used.</span>
-<span class="sd">    ```python</span>
+<span class="sd">    ``` python</span>
 <span class="sd">        model.compile(loss="mse", metrics=["mse", "mae"])</span>
 <span class="sd">    ```</span>
 
@@ -1386,9 +1400,7 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>253
-254
-255
+<pre><span></span>255
 256
 257
 258
@@ -1407,7 +1419,9 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 271
 272
 273
-274</pre>
+274
+275
+276</pre>
 </div>
 </td>
 <td class="code">
@@ -1527,14 +1541,18 @@ summary<span class="p">(</span><span class="bp">self</span><span class="p">)</sp
 <p>Prints the summary of the search to the console.</p>
 <p>Assuming the <em>RandomSearch</em> had n iterations or the
 <em>GridSearch</em> had n combinations in total, the output
-would have the following structure::
+would have the following structure:
+<div class="highlight">
+<pre><span></span><code>    --------------------------------------------------
+    Best score: ``float`` using params: ``dict``
     --------------------------------------------------
-    Best score: <code>float</code> using params: <code>dict</code>
-    --------------------------------------------------
-    Idx: 0   - Score: <code>float</code> using params: <code>dict</code>
+    Idx: 0   - Score: ``float`` using params: ``dict``
     ...
-    Idx: n-1 - Score: <code>float</code> using params: <code>dict</code>
-    --------------------------------------------------</p>
+    Idx: n-1 - Score: ``float`` using params: ``dict``
+    --------------------------------------------------
+</code></pre>
+</div>
+</p>
 <details class="quote">
           <summary>Source code in <code>tensorcross\model_selection\search_cv.py</code></summary>
           <table class="highlighttable">
@@ -1566,7 +1584,9 @@ would have the following structure::
 165
 166
 167
-168</pre>
+168
+169
+170</pre>
 </div>
 </td>
 <td class="code">
@@ -1576,7 +1596,8 @@ would have the following structure::
 
 <span class="sd">    Assuming the *RandomSearch* had n iterations or the</span>
 <span class="sd">    *GridSearch* had n combinations in total, the output</span>
-<span class="sd">    would have the following structure::</span>
+<span class="sd">    would have the following structure:</span>
+<span class="sd">    ```</span>
 <span class="sd">        --------------------------------------------------</span>
 <span class="sd">        Best score: ``float`` using params: ``dict``</span>
 <span class="sd">        --------------------------------------------------</span>
@@ -1584,6 +1605,7 @@ would have the following structure::
 <span class="sd">        ...</span>
 <span class="sd">        Idx: n-1 - Score: ``float`` using params: ``dict``</span>
 <span class="sd">        --------------------------------------------------</span>
+<span class="sd">    ```</span>
 <span class="sd">    """</span>
     <span class="n">best_params_str</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"Best score: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">results_</span><span class="p">[</span><span class="s1">'best_score'</span><span class="p">]</span><span class="si">}</span><span class="s2"> "</span>
                        <span class="sa">f</span><span class="s2">"using params: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">results_</span><span class="p">[</span><span class="s1">'best_params'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1632,9 +1654,12 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p>GridSearch for a given parameter grid.</p>
 <p>The grid search is evaluated by the either the validation loss value,
 if no metrics are passed to the compile function, or the
-validation score of the last defined metric is used.</p>
-<pre><code class="language-python">    model.compile(loss="mse", metrics=["mse", "mae"])
+validation score of the last defined metric is used.
+<div class="highlight">
+<pre><span></span><code>    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
 </code></pre>
+</div>
+</p>
 <p>This would sort the grid search combinations based on the validation
 mae score.</p>
 <p><strong>Parameters:</strong></p>
@@ -1699,9 +1724,7 @@ Defaults to 0.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>172
-173
-174
+<pre><span></span>174
 175
 176
 177
@@ -1735,7 +1758,9 @@ Defaults to 0.</p>
 205
 206
 207
-208</pre>
+208
+209
+210</pre>
 </div>
 </td>
 <td class="code">
@@ -1753,7 +1778,7 @@ Defaults to 0.</p>
 <span class="sd">    The grid search is evaluated by the either the validation loss value,</span>
 <span class="sd">    if no metrics are passed to the compile function, or the</span>
 <span class="sd">    validation score of the last defined metric is used.</span>
-<span class="sd">    ```python</span>
+<span class="sd">    ``` python</span>
 <span class="sd">        model.compile(loss="mse", metrics=["mse", "mae"])</span>
 <span class="sd">    ```</span>
 
@@ -1831,9 +1856,7 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>210
-211
-212
+<pre><span></span>212
 213
 214
 215
@@ -1847,7 +1870,9 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 223
 224
 225
-226</pre>
+226
+227
+228</pre>
 </div>
 </td>
 <td class="code">
@@ -1904,9 +1929,12 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p>RandomSearch for a given parameter distribution.</p>
 <p>The random search is evaluated by the either the validation loss value,
 if no metrics are passed to the compile function, or the
-validation score of the last defined metric is used.</p>
-<pre><code class="language-python">    model.compile(loss="mse", metrics=["mse", "mae"])
+validation score of the last defined metric is used.
+<div class="highlight">
+<pre><span></span><code>    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
 </code></pre>
+</div>
+</p>
 <p>This would sort the random search combinations based on the validation
 mae score.</p>
 <p><strong>Parameters:</strong></p>
@@ -1979,9 +2007,7 @@ Defaults to 0.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>230
-231
-232
+<pre><span></span>232
 233
 234
 235
@@ -2022,7 +2048,9 @@ Defaults to 0.</p>
 270
 271
 272
-273</pre>
+273
+274
+275</pre>
 </div>
 </td>
 <td class="code">
@@ -2041,7 +2069,7 @@ Defaults to 0.</p>
 <span class="sd">    The random search is evaluated by the either the validation loss value,</span>
 <span class="sd">    if no metrics are passed to the compile function, or the</span>
 <span class="sd">    validation score of the last defined metric is used.</span>
-<span class="sd">    ```python</span>
+<span class="sd">    ``` python</span>
 <span class="sd">        model.compile(loss="mse", metrics=["mse", "mae"])</span>
 <span class="sd">    ```</span>
 
@@ -2125,9 +2153,7 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>275
-276
-277
+<pre><span></span>277
 278
 279
 280
@@ -2141,7 +2167,9 @@ tf.keras.models.Model or tf.keras.models.Sequential model.</p>
 288
 289
 290
-291</pre>
+291
+292
+293</pre>
 </div>
 </td>
 <td class="code">
